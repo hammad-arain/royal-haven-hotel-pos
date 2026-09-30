@@ -5,7 +5,9 @@ from datetime import datetime
 app = Flask(__name__)
 app.secret_key = "luxury-hotel-pos-secret"
 
-DATABASE = "hotel_pos.db"
+import os
+
+DATABASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "hotel_pos.db")
 
 
 # ============================================================
@@ -323,6 +325,7 @@ def init_db():
     conn.commit()
     conn.close()
 
+init_db()
 
 # ============================================================
 # HTML / CSS
